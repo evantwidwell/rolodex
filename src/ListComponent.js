@@ -2,34 +2,38 @@ import React, {Component} from 'react';
 import './App.css';
 
 
-const ListComponent = (props) => {
-let click = false;
-
-const more = () =>{
+class ListComponent extends Component{
+  constructor(props) {
+    super(props)
+    this.state = {
+    isClicked: true,
+    
+    }
+    }
+more = () =>{
   console.log("making more info")
-  click = true;
+  this.setState({isClicked:true})
 };
-const less = ()=>{
-  click = false;
+less = ()=>{
+  this.setState({isClicked:false})
 }
-
-if(props.isClicked){
+render(){
+if(this.state.isClicked){
   return(
     <div> 
-    <h3>{props.users.name.first}, {props.users.name.last}</h3>
-    <img src={props.users.picture.thumbnail}></img>
-    <h3>{props.users.email}</h3>
-    <button onClick={()=>props.lessInfo()}>Less Info?</button>
+    <h3>{this.props.users.name.first}, {this.props.users.name.last}</h3>
+    <img src={this.props.users.picture.thumbnail} alt='thumb'></img>
+    <h3>{this.props.users.email}</h3>
+    <button onClick={()=>this.less()}>Less Info?</button>
   </div>)
-} else{
+} else {
 
 return (
   <div>
-    <h3>{props.users.name.first}, {props.users.name.last}</h3>
-    <img src={props.users.picture.thumbnail}></img>
-    <button onClick={()=>props.moreInfo()}>More Info?</button>
+    <h3>{this.props.users.name.first}, {this.props.users.name.last}</h3>
+    <img src={this.props.users.picture.thumbnail} alt ='thumb'></img>
+    <button onClick={()=>this.more()}>More Info?</button>
   </div>
 )
-}};
-
+}}};
 export default ListComponent
