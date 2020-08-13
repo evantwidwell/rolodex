@@ -24,6 +24,7 @@ if(this.state.isClicked){
     <h3>{this.props.users.name.first}, {this.props.users.name.last}</h3>
     <img src={this.props.users.picture.thumbnail} alt='thumb'></img>
     <h3>{this.props.users.email}</h3>
+    <h3>{this.props.users.cell}</h3>
     <button onClick={()=>this.less()}>Less Info?</button>
   </div>)
 } else {

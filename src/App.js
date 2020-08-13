@@ -20,13 +20,6 @@ class App extends Component {
     console.log(examples);
     this.setState({ data: examples.results })
     })}
-
-  moreInfo(){
-    this.setState({isClicked: true})
-  }
-  lessInfo(){
-    this.setState({isClicked: false})
-  }
   
   render () {
   
@@ -38,7 +31,7 @@ class App extends Component {
  {this.state.data.map((item, i) => {
     return (
       
-    <ListComponent key= {item.id} index={i} users={item} isClicked={this.state.isClicked} moreInfo= {()=>this.moreInfo()} lessInfo={()=>this.lessInfo()}/>
+    <ListComponent key= {item.id} index={i} users={item} isClicked={this.state.isClicked}/>
 )
 })}
     
